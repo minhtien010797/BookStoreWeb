@@ -1,0 +1,44 @@
+﻿
+@using MVCBookStore.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<SACH>
+
+  @*@model IEnumerable<MVCBookStore.Models.SACH>*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div id="templatemo_content_right">
+    @foreach (var sach in Model)
+    {
+        <div class="templatemo_product_box">
+            <h1>@sach.Tensach</h1>
+            <img alt="@sach.Tensach" src="~/Hinhsanpham/@sach.Hinhminhhoa" width="100" />
+            <div class="product_info">
+                <h3>@sach.Dongia</h3>
+                <div class="buy_now_button"><a href="subpage.html">Mua hàng</a></div>
+                <div class="detail_button"><a href="@Url.Action("Details", "BookStore", new { id=sach.Masach})">Chi tiết</a></div>
+            </div>
+            <div class="cleaner">&nbsp;</div>
+        </div>
+    }
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+    <style>
+       .MenuTrang{
+                margin-top: 2em;
+            }
+            .MenuTrang li {
+                display: inline;
+            }
+            .MenuTrang li a {
+                margin: 0.2em;
+                padding: 1em;
+                background-color: #85391f;
+                color: white;
+            }
+    </style>
+</div>

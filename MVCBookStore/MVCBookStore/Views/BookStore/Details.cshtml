@@ -1,0 +1,38 @@
+﻿<style type="text/css">
+    #Datmua a{
+        clear:both;background-color:#cbc750;
+        color:white; width:120px;height:35px;
+        display:block;float:right;text-align:center;
+        padding-top:10px;text-decoration:none;font-weight:bold;
+    }
+        #Datmua a:hover {
+        background-color:#abd716;
+        color:#000000;
+        }
+    </style>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h1 style="text-align:center">THÔNG TIN CHI TIẾT SÁCH</h1>
+<div>
+    <div style="width:40%;float:left;border-left:dotted 1px;border-color:azure">
+        <img src="~/Hinhsanpham//@Model.Hinhminhhoa" width="100%" />
+    </div>
+    <div style="width:60%;float:left;padding:10px">
+        <h4 style="font-weight:bold;color:#cbc750">Tên sách: @Model.Tensach</h4>
+        <p style="text-align:justify"><span style="font-weight:bold">Mô tả : </span>@Model.Mota </p>
+        <p style="font-weight:bold">Giá bán:<span style="color:#cbc750;font-size:16pt">@Model.Dongia VNĐ </span></p>
+    </div>
+    <div>
+        <div id="Datmua">
+            <a href="@Url.Action("ThemGioHang", "GioHang", new {@iMasach = @Model.Masach , @strURL = Request.Url.ToString()})" class="list-group-item">
+           ĐẶT MUA
+            </a>
+                 </div>
+        </div>
+</div>
+    
+

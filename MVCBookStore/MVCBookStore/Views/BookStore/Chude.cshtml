@@ -1,0 +1,9 @@
+﻿@model IEnumerable<MVCBookStore.Models.CHUDE>
+
+    @foreach (var chude in Model)
+    {
+        <li><a href="@Url.Action("SPTheochude","BookStore", new {id= chude.MaCD})" class="list-group-item">
+        @chude.TenChuDe</a></li>
+    
+    }
+    

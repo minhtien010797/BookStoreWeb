@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 style="text-align:center">Xin chào ADMIN !!!</h1>
+
+<div class="w3-content w3-section" style="max-width:500px">
+    <img class="mySlides" src="~/Hinhsanpham/quangcao4.png" style="width:960px;height:550px;clear:both;padding:0;margin-bottom:10px">
+    <img class="mySlides" src="~/Hinhsanpham/quangcao5.jpg" style="width:960px;height:550px;clear:both;padding:0;margin-bottom:10px">
+    <img class="mySlides" src="~/Hinhsanpham/quangcao6.jpg" style="width:960px;height:550px;clear:both;padding:0;margin-bottom:10px" />
+</div>
+
+<script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) { myIndex = 1 }
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 2000); // Change image every 2 seconds
+            }
+</script>
